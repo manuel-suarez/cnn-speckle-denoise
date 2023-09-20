@@ -4,12 +4,12 @@ from tensorflow.keras import Model
 
 def create_cnn_model():
     # Creating the model
-    inputs = Input(shape=(256,256,1))
 
     enc_conv0 = Conv2D(32, (3, 3), padding="same",activation='relu', kernel_initializer="he_normal")(inputs)
     enc_conv1 = Conv2D(32,(3,3),padding="SAME",activation='relu')(enc_conv0)
     max_pool1 = MaxPooling2D((2,2))(enc_conv1)
 
+    # TODO verificar pesos de entrada
     enc_conv2 = Conv2D(32,(3,3),padding="SAME",activation='relu')(max_pool1)
     max_pool2 = MaxPooling2D((2,2))(enc_conv2)
 
